@@ -1,0 +1,13 @@
+# Analyse
+
+## iOS
+...
+
+## Android
+...
+
+## Gemeinsame Logik
+...
+
+## Unterschiede
+...
