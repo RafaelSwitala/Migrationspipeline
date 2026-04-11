@@ -6,6 +6,39 @@ Alle Schritte sind strikt einzuhalten.
 
 ---
 
+## 0. Kontext-Erstellung (Pflichtschritt)
+
+Vor der eigentlichen Migration muss der Feature-Kontext erzeugt werden.
+
+Input:
+- Feature-Name
+- Zugriff auf iOS- und Android-Code
+
+Aufgaben:
+- Fülle folgende Dateien vollständig:
+  - feature-description.md
+  - behavior_spec.md
+  - legacy-analysis.md
+  - test-spec.md
+
+Regeln:
+- Keine Platzhalter erlaubt
+- Keine Annahmen ohne Codebasis
+- Alle Informationen müssen aus dem Legacy-Code abgeleitet werden
+
+Wenn Kontext unvollständig:
+→ Migration abbrechen
+
+---
+
+## GATE RULE
+
+Wenn feature-description.md oder legacy-analysis.md Platzhalter enthält:
+
+→ STOP IMMEDIATELY
+→ KEINE IMPLEMENTATION
+---
+
 ## 1. Feature-Analyse
 
 - Analysiere iOS- und Android-Implementierung

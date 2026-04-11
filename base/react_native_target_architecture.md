@@ -7,7 +7,7 @@ AsyncStorage / SecureStore
 Axios
 
 ## UI
-React Navigation / Expo Router
+React Navigation (fix)
 
 ## WebView
 react-native-webview

@@ -1,11 +1,20 @@
 # Behavior Specification – <FEATURE_NAME>
 
-## 1. Ziel des Features
+## 1. Status
+- [ ] Template
+- [ ] Aus Legacy-Code abgeleitet
+- [ ] Verifiziert
+
+## 2. Quelle der Informationen
+- iOS-Dateien:
+- Android-Dateien:
+
+## 3. Ziel des Features
 Kurze Beschreibung aus Nutzersicht.
 
 ---
 
-## 2. Inputs
+## 4. Inputs
 
 Liste aller Eingaben:
 
@@ -14,7 +23,7 @@ Liste aller Eingaben:
 
 ---
 
-## 3. Outputs
+## 5. Outputs
 
 Was wird erzeugt / verändert:
 
@@ -23,7 +32,7 @@ Was wird erzeugt / verändert:
 
 ---
 
-## 4. Hauptverhalten
+## 6. Hauptverhalten
 
 Schrittweise Beschreibung der Logik:
 
@@ -33,7 +42,7 @@ Schrittweise Beschreibung der Logik:
 
 ---
 
-## 5. Zustände
+## 7. Zustände
 
 Mögliche Zustände des Features:
 
@@ -44,7 +53,7 @@ Mögliche Zustände des Features:
 
 ---
 
-## 6. Erfolgsfall
+## 8. Erfolgsfall
 
 Was passiert bei korrekter Nutzung:
 
@@ -52,7 +61,7 @@ Was passiert bei korrekter Nutzung:
 
 ---
 
-## 7. Fehlerfälle (Edge Cases)
+## 9. Fehlerfälle (Edge Cases)
 
 - Ungültige Eingaben → ...
 - Netzwerkfehler → ...
@@ -61,7 +70,7 @@ Was passiert bei korrekter Nutzung:
 
 ---
 
-## 8. Seiteneffekte
+## 10. Seiteneffekte
 
 Welche Änderungen passieren außerhalb des Features:
 
@@ -71,7 +80,7 @@ Welche Änderungen passieren außerhalb des Features:
 
 ---
 
-## 9. Persistenz
+## 11. Persistenz
 
 Was wird gespeichert:
 
@@ -79,7 +88,7 @@ Was wird gespeichert:
 
 ---
 
-## 10. Abhängigkeiten
+## 12. Abhängigkeiten
 
 - API
 - Storage

@@ -117,3 +117,11 @@ Begründung:
 - Was lief schlecht:
 - Wo lagen die größten Probleme:
 - Eignung der KI für diese Aufgabe:
+
+---
+
+## 12. Selbstkritische Bewertung der KI
+
+- Was habe ich falsch gemacht?
+- Wo habe ich geraten?
+- Wo war der Kontext unklar?
