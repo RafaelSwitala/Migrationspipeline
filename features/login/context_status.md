@@ -1,12 +1,21 @@
-# Kontextstatus
+# Context Status – <FEATURE_NAME>
 
-## Status
-- [ ] Intake completed
-- [ ] iOS analyzed
-- [ ] Android analyzed
-- [ ] Behavior extracted
-- [ ] Tests generated
-- [ ] Tests validated
+## Pflicht
 
-## RULE
-Migration darf erst starten wenn alles checked ist
+- [ ] intake.md vollständig
+- [ ] legacy_analysis.md vollständig
+- [ ] feature_description.md vollständig
+- [ ] behavior_spec.md vollständig
+- [ ] test-spec.md vollständig
+
+## Qualität
+
+- [ ] Keine Platzhalter
+- [ ] Alles aus Code ableitbar
+- [ ] Tests vollständig
+
+---
+
+## Ergebnis
+
+- [ ] READY FOR MIGRATION
