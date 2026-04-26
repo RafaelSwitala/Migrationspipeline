@@ -5,7 +5,7 @@
 - [x] feature-description.md
 - [x] behavior_spec.md
 - [x] legacy-analysis.md
-- [x] test-spec.md
+- [x] test_spec.md
 
 ## Qualität
 - [x] Keine Platzhalter
