@@ -1,7 +1,6 @@
 # PHASE 2 – TEST GENERATION EXECUTION
 
 ## ZIEL
-Erzeuge eine vollständig deterministische test_spec.md basierend auf behavior_spec.md und intake.md.
 Erzeuge deterministische, ausführbare Testklassen für Android und iOS basierend auf test_definition.md und führe diese vollständig aus. Dokumentiere ausschließlich reale Ergebnisse.
 
 ---
