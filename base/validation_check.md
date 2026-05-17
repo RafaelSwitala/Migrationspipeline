@@ -75,6 +75,25 @@
 
 ---
 
+## VC-0204 ANDROID TEST COMPLETION CRITERIA
+- android-mobilebrowser/build.gradle existiert
+- android-mobilebrowser/app/build.gradle existiert
+- testImplementation 'junit:junit:4.13.2' vorhanden
+- Standard-Teststruktur vorhanden:
+  app/src/test/java/
+  app/src/androidTest/java/
+
+---
+
+## VC-0205 IOS TEST COMPLETION CRITERIA
+- ios-mobilebrowser/Podfile existiert
+- XCTest Framework verfügbar
+- Test Target vorhanden
+- Standard-Teststruktur vorhanden:
+  ios-mobilebrowserTests/
+
+---
+
 # 4. LEGACY VALIDATION CHECK
 
 ## VC-0301 LEGACY VALIDATION CHECK

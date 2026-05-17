@@ -72,6 +72,35 @@ Aktion:
 
 ---
 
+## E-0203 MISSING ANDROID TEST ENVIROMENT
+- Erstelle fehlende Gradle-Dateien anhand eines minimalen Android-Test-Setups
+- Ergänze automatisch:
+  testImplementation 'junit:junit:4.13.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+- Erstelle minimale Testordnerstruktur
+- Erstelle einen Dummy-Test:
+  ExampleUnitTest.kt
+
+Stoppe NICHT bei fehlender Testumgebung.
+Erzeuge stattdessen ein lauffähiges Minimal-Setup.
+
+---
+
+## E-0204 MISSING IOS TEST ENVIROMENT
+- Erstelle automatisch eine minimale XCTest-Testumgebung
+- Erstelle fehlendes Test Target
+- Erstelle Podfile falls notwendig
+- Füge XCTest hinzu
+- Erstelle Dummy-Testdatei:
+  ExampleTests.swift
+
+Stoppe NICHT bei fehlender Testumgebung.
+Erzeuge stattdessen ein lauffähiges Minimal-Setup.
+
+
+---
+
 # 4. MIGRATION ERRORS
 
 ## E-0301 RN MIGRATION FAILED

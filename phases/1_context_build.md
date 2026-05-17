@@ -11,10 +11,11 @@ Verwende folgende Pfade:
 * iOS: ios-mobilebrowser/Source
 * Android: android-mobilebrowser/app/src
 
-Zusätzliche Regelwerke:
+Zusätzliche Regelwerke müssen beachtet werden:
 * base/output_rules.md
 * base/validation_rules.md
 * base/error_rules.md
+* base/naming_rules.md
 
 ---
 
@@ -328,4 +329,3 @@ Angewendete Regeln:
 Angewendete Regeln:
 
 * E-0001
-* Test
