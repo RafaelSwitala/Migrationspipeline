@@ -1,55 +1,34 @@
-# REFERENCE RULES
+# Reference Rules
 
-## 1. REFERENCE REQUIREMENT
+## REF-001 Evidence Required
 
-Jede Aussage MUSS enthalten:
+Jede fachliche Aussage braucht eine Quelle. Phase 1 verwendet Legacy-Referenzen mit Datei, Symbol und Zeile. Spaetere Phasen verwenden die IDs aus Phase 1 und Phase 2.
 
-* Datei
-* Methode
-* Zeile
+## REF-002 Reference Format
 
----
+Legacy-Code:
 
-## FORMAT
+```text
+[ios: Source/Path/File.swift:42 symbol=methodName]
+[android: app/src/main/.../File.kt:88 symbol=methodName]
+```
 
-[iOS: File.swift:method():10-20]  
-[Android: File.kt:method():45-60]
+Artefakte:
 
----
+```text
+[P1-A12: EP-001]
+[P2-A23: LT-004]
+[P4-A42: RT-004]
+```
 
-## VALID REFERENCE TYPES
+## REF-003 Later-Phase Restriction
 
-Erlaubt:
+Phase 3 bis 5 duerfen keine neuen Legacy-Referenzen erzeugen. Wenn ein Detail fehlt, stoppt die Phase mit `ERR-REF-01` und fordert eine Phase-1-Ergaenzung.
 
-* Methoden
-* Klassen
-* Funktionen
+## REF-004 No Floating Claims
 
----
+Verboten sind Formulierungen wie `vermutlich`, `wahrscheinlich`, `typischerweise`, `sollte wohl`, `siehe Code` oder `in der Datei`.
 
-## INVALID REFERENCES
+## REF-005 Traceability
 
-Verboten:
-
-* „siehe Code“
-* „in dieser Datei“
-* fehlende Zeilenangaben
-
----
-
-## MISSING REFERENCE
-
-Wenn Referenz fehlt:
-
-→ STOP
-
----
-
-## TRACEABILITY
-
-Jede Information MUSS:
-
-* zurückführbar sein auf intake.md
-* oder direkt auf Code
-
-Keine losgelösten Aussagen erlaubt
+Jede implementierte RN-Funktion und jeder Testfall muss auf mindestens eine Phase-1-ID oder Phase-2-Test-ID zurueckfuehrbar sein.

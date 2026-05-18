@@ -1,331 +1,124 @@
-# PHASE 1 – CONTEXT BUILD
+# Phase 1: Context Build
+
+## Ziel
 
-## ZIEL
-Erzeuge eine vollständige, referenzierbare Feature-Analyse basierend auf allen relevanten Dateien für das Feature <FEATURE_NAME>.
+Erstelle fuer `<FEATURE_NAME>` einen vollstaendigen, belegten Feature-Kontext aus iOS und Android, sodass Phase 2 bis 5 kein neues fachliches Legacy-Discovery mehr brauchen.
+
+## Input
 
----
+Runtime-Parameter aus der aktuellen Chat-Eingabe:
 
-## INPUT
-Verwende folgende Pfade:
+| Parameter | Bedeutung |
+|---|---|
+| `FEATURE_NAME` | Feature-Bezeichnung aus dem Nutzerprompt |
+| `FEATURE_SLUG` | abgeleitet nach `NAM-001` |
+| `AGENT_ID` | Agent/Tool, zum Beispiel `codex`, `cursor`, `claude`; falls unbekannt `unknown-agent` |
+| `RUN_ID` | neuer Run nach `artifacts/README.md`; falls nicht genannt, neu erzeugen |
 
-* iOS: ios-mobilebrowser/Source
-* Android: android-mobilebrowser/app/src
+Arbeitsquellen:
 
-Zusätzliche Regelwerke müssen beachtet werden:
-* base/output_rules.md
-* base/validation_rules.md
-* base/error_rules.md
-* base/naming_rules.md
-
----
-
-## OUTPUT
-
-Es müssen folgende Dateien vollständig erzeugt werden:
-
-* features/<FEATURE_NAME>/11_feature_analysis.md
-* features/<FEATURE_NAME>/12_code_facts.md
-* features/<FEATURE_NAME>/13_test_definition.md
-* features/<FEATURE_NAME>/14_migration_mapping.md
-* features/<FEATURE_NAME>/15_execution_contract.md
-* features/<FEATURE_NAME>/16_traceability_matrix.md
-
-Alle Dateien sind verpflichtend.
-
-### Regelbindung pro Datei:
-
-* feature_analysis.md → O-0001 bis O-0010  
-* code_facts.md → O-1301 bis O-1315  
-* test_definition.md → O-1401 bis O-1406  
-* migration_mapping.md → O-1501 bis O-1507  
-* execution_contract.md → O-1601 bis O-1604  
-* traceability_matrix.md → O-1701 
-
----
-
-## EXECUTION STEPS
-
-### STEP 1: DISCOVERY
-
-Scanne alle Dateien und identifiziere relevante Dateien gemäß Relevanz-Regel:
-
-**Dateitypen:**
-* iOS: `.swift`
-* Android: `.kt`, `.java`
-
-**Eine Datei ist RELEVANT, wenn mindestens eine Bedingung erfüllt ist:**
-
-* direkte Referenz zu `<FEATURE_NAME>`
-* indirekte Nutzung durch das Feature (Helper, Utils, Storage, URL Builder)
-* wird vom Feature aufgerufen oder ruft das Feature auf
-* enthält Feature-spezifische Navigation
-* enthält Feature-spezifische Storage- oder API-Nutzung
-
----
-
-### STEP 2: STRUCTURED EXTRACTION
-
----
-
-### 2A – FEATURE ANALYSIS
-
-* Beantworte O-0001 bis O-0010  
-* Ziel: Abstrakte, plattformunabhängige Feature-Beschreibung  
-
----
-
-### 2B – CODE FACT EXTRACTION
-
-* Beantworte O-1301 bis O-1310  
-* Ziel: Vollständige, verlustfreie Extraktion aller technischen Details aus dem Code  
-
----
-
-### 2C – TEST DEFINITION
-
-**Ziel:**  
-Erzeuge strikt ableitbare, atomare Testdefinitionen basierend ausschließlich auf CODE FACTS.
-
-**REGELN:**
-
-* Jede Zeile MUSS auf mindestens einen CODE FACT (O-130x) referenzieren
-* KEINE neue Logik
-* KEINE Interpretation außerhalb des Codes
-* KEINE Zusammenfassung mehrerer Fakten ohne explizite Referenzen
-
-**OUTPUT MAPPING:**
-
-* O-1401 ← O-1302 (Entry Points)
-* O-1402 ← O-1303 (Plattformpaare)
-* O-1403 ← O-1305 (State Changes)
-* O-1404 ← O-1306 (Storage Writes)
-* O-1405 ← O-1308 (Error Branches)
-
-**FORMAT ANFORDERUNG:**
-
-Jeder Testfall MUSS enthalten:
-* eindeutige ID
-* referenzierte O-130x Quellen
-* exakten Trigger (Entry Point)
-* erwartetes Verhalten (nur aus Code ableitbar)
-
-**VALIDATION (BLOCKING):**
-
-* Kein Test ohne Source Mapping
-* Kein Test ohne Entry Point Referenz
-* Jeder Test ist vollständig tracebar zu O-130x
-
----
-
-### 2D – MIGRATION MAPPING
-
-**Ziel:**  
-Transformiere CODE FACTS in eine plattformübergreifende Verhaltensbeschreibung für Migration.
-
-**REGELN:**
-
-* KEINE neue Funktionalität
-* KEINE Interpretation
-* KEINE Vereinheitlichung von Logik
-* Jede Zeile MUSS exakt auf O-130x referenzieren
-
-**OUTPUT MAPPING:**
-
-* O-1501 COMPONENT MAPPING ← O-1301, O-1302  
-* O-1502 STORAGE MAPPING ← O-1306  
-* O-1503 API MAPPING ← O-1307  
-* O-1504 UI MAPPING ← O-1302, O-1309  
-* O-1505 STATE MAPPING ← O-1305, O-1308  
-
-**FORMAT ANFORDERUNG:**
-
-Jede Mapping-Zeile MUSS enthalten:
-* Source (O-130x Referenz)
-* exakte Beschreibung der bestehenden Implementierung
-* Plattform-Zuordnung (iOS / Android)
-* RN-Äquivalent ODER `NOT FOUND`
-
-**VALIDATION (BLOCKING):**
-
-* Kein Mapping ohne Code Fact
-* Kein RN Target ohne vollständige Source Referenz
-* Plattform-Divergenzen müssen explizit markiert werden
-
----
-
-### 2E – EXECUTION CONTRACT
-
-**Ziel:**  
-Definiere ein strikt ausführbares Regelwerk für Testing und Migration.
-
-**REGELN:**
-
-* KEINE neue Logik
-* KEINE Interpretation
-* KEINE UI/UX Ableitung
-* Nur Einschränkungen basierend auf bestehenden Fakten
-
-**OUTPUT MAPPING:**
-
-* O-1601 TEST EXECUTION RULES ← O-140x + O-130x  
-* O-1602 RUN ORDER ← O-1401 + O-1302  
-* O-1603 OUTPUT CONTRACT ← O-1403 + O-1404 + O-1305  
-* O-1604 COMPARISON RULES ← O-1402 + O-1405  
-
-**FORMAT ANFORDERUNG:**
-
-Jede Regel MUSS enthalten:
-* referenzierte O-130x / O-140x Quellen
-* klare Einschränkung (was erlaubt / nicht erlaubt ist)
-* keine impliziten Annahmen
-
-**VALIDATION (BLOCKING):**
-
-* Kein Contract ohne Source Mapping
-* Keine Regel ohne O-130x Bezug
-* Keine Ausführungsregel ohne Entry Point Bezug
-
-### 2F – TRACEABILITY CONSOLIDATION
-
-**Ziel:**  
-Erzeuge eine zentrale, normalisierte Referenzstruktur aller Beziehungen zwischen Code Facts, Tests, Migration und Execution.
-
----
-
-### REGELN:
-
-* KEINE neue Logik
-* KEINE Interpretation
-* KEINE Ableitung neuer Beziehungen
-* Nur bereits existierende Referenzen verwenden
-
----
-
-### INPUT QUELLEN:
-
-* O-130x (Code Facts)
-* O-140x (Test Definition)
-* O-150x (Migration Mapping)
-* O-160x (Execution Contract)
-
----
-
-### OUTPUT MAPPING:
-
-* O-1701 TRACEABILITY MATRIX ← O-130x + O-140x + O-150x + O-160x
-
----
-
-### NORMALISIERUNG:
-
-Alle Referenzen müssen in folgende Typen überführt werden:
-
-* EP → Entry Point (O-1302)
-* SC → State Change (O-1305)
-* ST → Storage (O-1306)
-* API → API Calls (O-1307)
-* PP → Plattformpaare (O-1303)
-* EB → Error Branch (O-1308)
-
----
-
-### FORMAT ANFORDERUNG:
-
-Jede Zeile MUSS enthalten:
-
-* Type (EP / SC / ST / API / PP / EB)
-* ID (z. B. EP-1, SC-3)
-* Referenziert von (z. B. T-EP-1, T-FLOW-1, O-1502, O-1601)
-* Referenziert zu (z. B. SC-3, ST-1, API-2)
-
----
-
-### HERLEITUNGSREGELN:
-
-* EP ← O-1401 + O-1302
-* SC ← O-1403 + O-1305
-* ST ← O-1404 + O-1306
-* API ← O-1503 + O-1307
-* PP ← O-1402 + O-1303
-* EB ← O-1405 + O-1308
-
----
-
-### VALIDATION (BLOCKING):
-
-* Keine Matrix-Zeile ohne existierende Source-ID
-* Jede ID MUSS in mindestens einem anderen Artefakt referenziert sein
-* Keine isolierten Knoten erlaubt
-* Keine neuen IDs erlaubt
-* Jede Beziehung muss bidirektional nachvollziehbar sein
-
----
-
-## STEP 3: ABSTRACTION (FEATURE ANALYSIS)
-
-Die Datei `feature_analysis.md` muss:
-
-* plattformunabhängig sein
-* keine Klassen- oder Methodennamen enthalten
-* ausschließlich Verhalten, Datenflüsse und Logik beschreiben
-* konsistente Terminologie verwenden
-* alle Widersprüche auflösen
-
-**INTERPRETATION ERLAUBT NUR WENN:**
-
-* direkt aus Code ableitbar
-* durch Referenzen belegbar
-
-**REGELN:**
-
-* Keine Annahmen
-* Fehlende Informationen → `NOT FOUND`
-* Jede Aussage MUSS referenzierbar sein
-
-**FEHLER:**
-
-* Aussage ohne Referenz → UNGÜLTIG
-* Regelverletzung → VALIDATION FAIL + Abbruch
-
----
-
-## CODE FACT RULES (BLOCKING)
-
-* Alle Informationen müssen 1:1 aus Code stammen
-* Keine Ableitung aus feature_analysis.md
-* Keine Generalisierung
-* Fehlende Werte → `NOT FOUND`
-
-**Pflichtfelder pro Eintrag:**
-
-* Datei
-* Methode
-* Zeile
-
-**Zusätzlich:**
-
-* Bedingungen im Original-Codeformat angeben
-
----
-
-## VALIDATION (BLOCKING)
-
-Angewendete Regeln:
-
-* V-0301
-* V-0302
-* V-0303
-* V-0304
-* V-0305
-* V-0306
-* V-0307
-* V-0308
-* V-0309
-
----
-
-## FEHLERFALL
-
-Angewendete Regeln:
-
-* E-0001
+- Legacy iOS: `../ios-mobilebrowser/`
+- Legacy Android: `../android-mobilebrowser/`
+- Regeln: `rules/*.md`
+- Base: `base/*.md`
+- Contracts: `contracts/*.md`
+- Templates: `templates/run_metadata.template.md`, `templates/11_feature_analysis.template.md` bis `templates/16_traceability_matrix.template.md`
+
+Die Chat-Eingabe selbst ist nur der Ausloeser, kein fachlicher Inhalt ausser `FEATURE_NAME`.
+
+## Output
+
+Artefaktwurzel:
+
+```text
+artifacts/<feature-slug>/<agent-id>/<run-id>/
+```
+
+Erzeuge `run_metadata.md` aus `templates/run_metadata.template.md` und folgende Dateien in `phase_1/`:
+
+| Artifact ID | Datei | Pflichtinhalt | Vollstaendig wenn |
+|---|---|---|---|
+| P1-A11 | `11_feature_analysis.md` | Feature-Scope, Suchbegriffe, relevante iOS/Android-Dateien, Boundary, Cross-Platform Summary | beide Plattformen durchsucht oder `NOT_PRESENT` belegt |
+| P1-A12 | `12_code_facts.md` | Entry Points, Behaviors, State, Storage, API, Navigation, Error Paths, Dependencies, UI, Security | jede fachliche Zeile hat Quelle nach `REF-002` |
+| P1-A13 | `13_test_definition.md` | testbare Behaviors, geplante `LT-*` Tests, Edge Cases, Coverage-Ziele, nicht testbare Punkte | jeder wichtige `BEH-*`/`STATE-*`/`ERRPATH-*` ist getestet oder begruendet ausgeschlossen |
+| P1-A14 | `14_migration_mapping.md` | `MAP-*` fuer RN-Ziele, Services, Storage, API, State, Divergenzen, Dependencies | jedes relevante Code Fact hat Mapping oder Ausschlussgrund |
+| P1-A15 | `15_execution_contract.md` | Testframeworks, Mocks, Commands, spaetere Phasenregeln, bekannte Build-/Test-Hinweise | Phase 2 bis 5 koennen ohne neues fachliches Discovery starten |
+| P1-A16 | `16_traceability_matrix.md` | Source-ID zu Test-ID, Mapping-ID, RN-Ziel und Status | keine Source-ID aus `12_code_facts.md` ist orphaned |
+
+Keine Codeaenderungen in Legacy- oder RN-Repositories.
+
+## Regelbindungen
+
+- `PC-001` bis `PC-009`
+- `MC-001`, `MC-002`, `MC-004`, `MC-006`
+- `GR-001` bis `GR-007`
+- `REF-001`, `REF-002`, `REF-004`, `REF-005`
+- `OUT-001` bis `OUT-009`
+- `NAM-001`, `NAM-002`, `NAM-005`
+- `VAL-GEN-01` bis `VAL-GEN-03`
+- `VAL-P1-01` bis `VAL-P1-04`
+- `ERR-REF-01`, `ERR-P1-01`, `ERR-P1-02`, `ERR-P1-03`
+- `STOP-001` bis `STOP-004`
+
+## Execution Steps
+
+1. Run initialisieren.
+   - Leite `FEATURE_SLUG` ab.
+   - Lege `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_1/` an.
+   - Kopiere die Phase-1-Templates in `phase_1/` und entferne `.template` aus dem Dateinamen.
+   - Fuell `run_metadata.md` mit Agent, Modell, Prompt, Zeit und Artefaktwurzel.
+
+2. Discovery planen.
+   - Sammle Suchbegriffe aus `FEATURE_NAME`, UI-Begriffen, Klassen-/Methodennamen und bekannten Synonymen.
+   - Suche in iOS und Android nach Code, Strings, Storage Keys, API Clients, Navigation und vorhandenen Tests.
+   - Dokumentiere Suchbegriffe, Treffer und irrelevante Treffer in `P1-A11`.
+
+3. Relevanz entscheiden.
+   - Markiere Dateien als relevant, indirekt relevant oder out of scope.
+   - Jede relevante Datei erhaelt `IOS-FILE-*` oder `AND-FILE-*`.
+
+4. Code Facts extrahieren.
+   - Erfasse die Pflichtkategorien aus `P1-A12`.
+   - Verwende `N/A` nur, wenn eine Kategorie belegbar nicht existiert.
+   - Widersprueche zwischen iOS und Android nicht aufloesen, sondern als Divergenz dokumentieren.
+
+5. Testdefinition ableiten.
+   - Erzeuge `LT-*` Testideen aus den Code Facts.
+   - Formuliere Given/When/Then und erwartete Outputs.
+   - Priorisiere Behavior, Branches, Error Paths, State und Storage/API Side Effects.
+
+6. Migration Mapping erstellen.
+   - Erzeuge `MAP-*` fuer RN-Codeziele.
+   - Dokumentiere Reuse/Add/Adapt-Entscheidungen und RN-Dependencies.
+   - Lege Platform Divergences mit RN-Entscheidung fest.
+
+7. Execution Contract erstellen.
+   - Dokumentiere, welche Informationen Phase 2 bis 5 verwenden muessen.
+   - Notiere bekannte Testcommands oder `UNKNOWN` mit Grund.
+
+8. Traceability konsolidieren.
+   - Verknuepfe jede Source-ID mit Tests, Mappings und RN-Zielen.
+   - Markiere Gaps als `BLOCKED`, wenn sie spaetere Phasen verhindern.
+
+9. Self-Validation.
+   - Fuehre alle Validierungsregeln aus dieser Phase durch.
+   - Setze Artefakte auf `READY_FOR_REVIEW`, `BLOCKED` oder `FAILED`.
+
+## Validationsregeln
+
+| ID | Check | Fehler |
+|---|---|---|
+| VAL-P1-01 | iOS und Android durchsucht oder `NOT_PRESENT` belegt | ERR-P1-01 |
+| VAL-P1-02 | Code Facts vollstaendig oder `N/A` begruendet | ERR-P1-02 |
+| VAL-P1-03 | Spaetere Phasen koennen ohne fachliches Rediscovery arbeiten | ERR-P1-02 |
+| VAL-P1-04 | Jede Code-Fact-ID steht in der Traceability Matrix | ERR-P1-02 |
+| VAL-GEN-02 | Jede fachliche Aussage hat Quelle | ERR-REF-01 |
+
+## Fehlerfaelle
+
+| Fehler | Behandlung |
+|---|---|
+| ERR-P1-01 | STOP, Feature-Scope oder Suchbegriffe klaeren |
+| ERR-P1-02 | STOP, fehlendes Artefakt oder fehlende IDs ergaenzen |
+| ERR-P1-03 | STOP, iOS/Android-Divergenz als Mapping-Entscheidung dokumentieren |
+| ERR-REF-01 | STOP, Quelle nachtragen oder Aussage entfernen |

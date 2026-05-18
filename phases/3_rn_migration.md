@@ -1,113 +1,98 @@
-# PHASE 3 – REACT NATIVE MIGRATION (FEATURE IMPLEMENTATION)
+# Phase 3: React Native Expo Feature Migration
 
-## ZIEL
-Implementiere das Feature von Grund auf in React Native/Expo auf Basis aller Informationen aus Phase 1, OHNE auf Legacy-Code zurückzugreifen.
+## Ziel
 
----
+Implementiere `<FEATURE_NAME>` in `../rn-e-mobilebrowser/` auf Basis von Phase 1. Diese Phase erzeugt RN-Produktionscode, aber keine RN-Tests.
 
-## INPUT
+## Input
 
-### Aus Phase 1 erforderlich:
-* features/<FEATURE_NAME>/11_feature_analysis.md → Feature-Beschreibung, Entry Points
-* features/<FEATURE_NAME>/12_code_facts.md → Reale Implementierungsdetails (Klassen, Methoden, Storage, APIs)
-* features/<FEATURE_NAME>/14_migration_mapping.md → Component Mapping, Storage Mapping, API Mapping
-* features/<FEATURE_NAME>/15_execution_contract.md → Ausführungs-Regeln, Abhängigkeiten
+Runtime-Parameter:
 
-### Aus Phase 2 (optional, für Referenz):
-* features/<FEATURE_NAME>/21_test_implementation.md → Test-Struktur (kann helfen beim Design)
+| Parameter | Bedeutung |
+|---|---|
+| `FEATURE_NAME` | Feature-Bezeichnung aus dem Nutzerprompt |
+| `FEATURE_SLUG` | identisch zum Phase-1-Run |
+| `AGENT_ID` | identisch zum Phase-1-Run |
+| `RUN_ID` | vorhandener Run; falls nicht genannt, den passenden reviewed Run waehlen und dokumentieren |
 
-### RN Projekt (bereits initialisiert):
-* rn-expo-project/ (Basis-Struktur vorhanden, kein Legacy Code)
+Arbeitsquellen:
 
-### Regelwerke:
-* base/architecture.md → RN Projektstruktur
-* base/output_rules.md
-* base/validation_rules.md
-* base/error_rules.md
+- Phase 1: `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_1/`
+- RN-Projekt: `../rn-e-mobilebrowser/`
+- Base: `base/architecture.md`, `base/constraints.md`
+- Regeln: `rules/*.md`
+- Templates: `templates/31_rn_implementation_plan.template.md` bis `templates/33_rn_mapping_status.template.md`
 
----
+Phase 2 ist fuer Phase 3 kein fachlicher Input.
 
-## OUTPUT
+## Output
 
-### Dateien zu erzeugen:
-* features/<FEATURE_NAME>/31_rn_architecture_decisions.md
-* features/<FEATURE_NAME>/32_rn_implementation_report.md
-* features/<FEATURE_NAME>/33_rn_dependency_mapping.md
+Erzeuge folgende Dateien in `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_3/`:
 
-### Code zu erzeugen:
-* rn-expo-project/src/features/<FEATURE>/
-  - index.ts
-  - types.ts
-  - constants.ts
-  - services/ (API, Storage, etc.)
-  - components/ (UI Components)
-  - hooks/ (Custom Hooks)
-  - utils/ (Helper Functions)
-  - __tests__/ (Später in Phase 4)
+| Artifact ID | Datei | Pflichtinhalt | Vollstaendig wenn |
+|---|---|---|---|
+| P3-A31 | `31_rn_implementation_plan.md` | `MAP-*` zu RN-Dateien/Symbolen, Reuse/Add/Adapt, Dependencies, Implementierungsreihenfolge | jedes `MAP-*` hat eine geplante Aktion |
+| P3-A32 | `32_rn_code_report.md` | geaenderte RN-Dateien, erzeugte Symbole, Commands, Typecheck/Lint/Build-Ergebnisse, Fehler | jede Codeaenderung und jeder Command ist dokumentiert |
+| P3-A33 | `33_rn_mapping_status.md` | Status pro `MAP-*`: `IMPLEMENTED`, `PARTIAL`, `EXCLUDED`, `BLOCKED`; Evidenz und Risiko | kein `MAP-*` fehlt |
 
----
+Erzeuge oder aktualisiere Runtime-Code in `../rn-e-mobilebrowser/` gemaess Projektstruktur.
 
-## EXECUTION STEPS (VERKÜRZT HIER; SIEHE DETAILS UNTEN)
+## Regelbindungen
 
-Folge den Schritten STEP 0 bis STEP 10 in exakter Reihenfolge.
+- `PC-001` bis `PC-009`
+- `MC-001` bis `MC-004`, `MC-006`
+- `GR-001`, `GR-003`, `GR-004`, `GR-006`, `GR-007`
+- `REF-003`, `REF-005`
+- `MIG-001` bis `MIG-005`, `MIG-007`
+- `ARCH-001` bis `ARCH-006`
+- `CON-001`, `CON-003`, `CON-004`, `CON-005`
+- `OUT-001`, `OUT-003`, `OUT-006`, `OUT-007`, `OUT-008`, `OUT-009`
+- `VAL-P3-01` bis `VAL-P3-03`
+- `ERR-P3-01`, `ERR-P3-02`, `ERR-P3-03`
 
----
+## Execution Steps
 
-## REGELN
+1. Pre-flight pruefen.
+   - Stelle sicher, dass RN-Projekt und Phase-1-Artefakte existieren.
+   - Lies vorhandene RN-Struktur, `package.json`, TypeScript/Jest-Konfiguration und lokale Patterns.
+   - Lege `phase_3/` an.
+   - Kopiere die Phase-3-Templates in `phase_3/` und entferne `.template` aus dem Dateinamen.
 
-### Code Generation
-- KEINE neue Funktionalität, nur Umsetzung der Legacy Behavior
-- Alle Dateien MÜSSEN auf Phase 1 O-XXX Referenzen haben
-- KEINE Annahmen über Verhalten – alles muss aus Code Facts ableitbar sein
-- KEINE TODOs außer `// TODO: Implement exact [X] from Legacy Code`
+2. Implementierungsplan erstellen.
+   - Mappe `MAP-*` IDs auf konkrete RN-Dateien und Symbole.
+   - Entscheide create/reuse/adapt nach `MIG-004`.
+   - Dokumentiere Plan und Dependencies in `31_rn_implementation_plan.md`.
 
-### Architecture Choices
-- AsyncStorage für nicht-sensitive Daten
-- SecureStore für sensitive Daten (nur wenn Legacy Code Verschlüsselung nutzte)
-- axios für API calls (bereits Standard in RN)
-- Custom hooks für State Management (kein Redux/MobX außer legacy Code nutzte es)
+3. Code implementieren.
+   - Implementiere Types, Services, Hooks, Components/Screens und Utils in passender Reihenfolge.
+   - Keine Business-Logik in reinen Components.
+   - Kein fachliches Verhalten ohne Phase-1-ID.
 
-### TypeScript Standards
-- Alle Props und State MÜSSEN typisiert sein
-- Keine `any` Types außer wo absolut notwendig (mit Kommentar)
-- Alle Exports MÜSSEN typisiert sein
+4. Dependencies behandeln.
+   - Nutze vorhandene Libraries zuerst.
+   - Neue Dependencies nur mit Begruendung und Installations-/Importnachweis.
 
-### Error Handling
-- MUSS basierend auf O-1308 (Legacy Error Handling) implementiert sein
-- Try/catch für alle async Operations
-- Error state in Components / Hooks
+5. Static Validation ausfuehren.
+   - Fuehre verfuegbare TypeScript-, lint- oder buildnahe Commands aus.
+   - Wenn Commands fehlen, dokumentiere `N/A` mit Grund.
 
-### Platform Divergences
-- Falls Feature nur auf iOS existiert → SKIP Android-Implementation
-- Falls Feature nur auf Android existiert → SKIP iOS-Implementation
-- Falls unterschiedliche Implementierung → Mit Kommentar dokumentieren, warum
+6. Reports erstellen.
+   - Fuell alle drei Phase-3-Artefakte.
+   - Aktualisiere `run_metadata.md` mit Commands, Dauer, geaenderten Dateien und offenen Risiken.
 
----
+## Validationsregeln
 
-## VALIDATION (BLOCKING)
+| ID | Check | Fehler |
+|---|---|---|
+| VAL-P3-01 | Jedes `MAP-*` hat Implementierungsstatus | ERR-P3-01 |
+| VAL-P3-02 | RN-Code ist statisch pruefbar oder Fehler dokumentiert | ERR-P3-03 |
+| VAL-P3-03 | Architekturregeln eingehalten | ERR-P3-01 |
+| VAL-GEN-02 | Jede Entscheidung referenziert Phase 1 | ERR-REF-01 |
 
-| Regel | Prüfung | Fehler |
-|------|---------|--------|
-| V-0801 | Alle Dateien aus O-1501 Components MÜSSEN implementiert sein | E-0301 |
-| V-0802 | Storage Service MUSS alle Keys aus O-1306 implementieren | E-0301 |
-| V-0803 | API Service MUSS alle Endpoints aus O-1307 implementieren | E-0301 |
-| V-0804 | Alle Components MÜSSEN TypeScript compilieren | E-0301 |
-| V-0805 | Keine `any` Types außer mit Kommentar | E-0301 |
-| V-0806 | Jede Funktion MUSS auf O-1302 oder O-1310 Referenz haben | E-0301 |
-| V-0807 | Error Handling MUSS pro O-1308 implementiert sein | E-0301 |
+## Fehlerfaelle
 
----
-
-## FEHLERFALL
-
-| Fehler Code | Situation | Behandlung |
-|-------------|-----------|-----------|
-| E-0301 | RN Migration Failed (Compile Error, Mapping Incomplete) | STOP. Detail im Report. |
-| E-0302 | Missing Dependency | STOP. Dokumentiere welche. |
-| E-0303 | Behavior nicht mappar (z.B. Platform-specific) | Dokumentiere in Report, FLAG als Partial |
-
----
-
-## DETAILLIERTE EXECUTION STEPS
-
-[Weitere Sections folgen wie oben in create_file definiert]
+| Fehler | Behandlung |
+|---|---|
+| ERR-P3-01 | STOP, Mapping-Luecke oder nicht umsetzbares Verhalten dokumentieren |
+| ERR-P3-02 | STOP, fehlendes RN-Projekt oder Dependency dokumentieren |
+| ERR-P3-03 | STOP, TypeScript/Import/Buildfehler im Report erfassen |

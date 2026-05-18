@@ -1,37 +1,44 @@
-# Zielarchitektur
-- React Native (Expo)
-- TypeScript
+# Target Architecture
 
-## Projektstruktur
-* src/screens/
-* src/services/
-* src/hooks/
-* src/components/
-* src/types/
-* src/utils/
+## ARCH-001 Platform
 
-## Verantwortlichkeiten
+Zielplattform ist React Native mit Expo und TypeScript.
 
-- components/ → reine UI
-- hooks/ → State + Logik
-- services/ → API + externe Systeme
-- utils/ → pure functions
+## ARCH-002 Preferred Project Structure
 
-## Regeln
-- Keine Business-Logik in components
-- API nur über services
+Wenn das RN-Projekt keine andere etablierte Struktur vorgibt, gilt:
 
-## FEATURE INTEGRATION RULE:
+```text
+src/
+  components/
+  hooks/
+  screens/
+  services/
+  types/
+  utils/
+```
 
-Neue Features dürfen NICHT als isolierter Ordner gebaut werden.
+## ARCH-003 Responsibilities
 
-Sie müssen integriert werden in:
+| Layer | Verantwortung |
+|---|---|
+| `components/` | Reine UI und Props, keine Business-Logik |
+| `screens/` | Screen-Komposition, Navigation, Hook-Nutzung |
+| `hooks/` | State, Lifecycle, Feature-Orchestrierung |
+| `services/` | API, Storage, externe Systeme |
+| `types/` | Gemeinsame TypeScript-Typen |
+| `utils/` | Pure Functions ohne Side Effects |
 
-- screens/
-- services/
-- hooks/
+## ARCH-004 Feature Integration
 
-Feature-Ordner existiert ausschließlich für Analyse- und Dokumentationszwecke.
-Er darf NICHT für Runtime-Code verwendet werden.
+`ai-context/artifacts/<feature-slug>/<agent-id>/<run-id>/` ist nur Dokumentation. Runtime-Code wird in die Struktur von `../rn-e-mobilebrowser/` integriert.
 
-Verstoß → STOP: ARCHITECTURE VIOLATION
+Ein isolierter `src/features/<feature-slug>/`-Ordner ist nur erlaubt, wenn das RN-Projekt dieses Pattern bereits nutzt.
+
+## ARCH-005 Dependency Direction
+
+UI darf Hooks nutzen. Hooks duerfen Services und Utils nutzen. Services duerfen keine UI importieren.
+
+## ARCH-006 Minimalism
+
+Keine neue State-Management-, API- oder Styling-Bibliothek einfuehren, wenn das Feature mit vorhandenen Mitteln umgesetzt werden kann.

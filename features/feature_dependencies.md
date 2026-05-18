@@ -1,76 +1,19 @@
-## DEPENDENCY MATRIX
+# Feature Dependencies
 
-| Current Feature | Depends On | Type | Required | Source |
-|----------------|----------|------|----------|--------|
-| Settings       | Storage  | HARD | YES      | intake.md L45 |
-| Settings       | Login    | SOFT | NO       | behavior B003 |
+Diese Datei ist eine optionale globale Uebersicht. Verbindliche Dependency-Details gehoeren in die jeweiligen Run-Artefakte unter `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_1/14_migration_mapping.md` und `15_execution_contract.md`.
 
-## REUSE MAPPING
+## Dependency Matrix
 
-| Needed Functionality | Existing Implementation | Location | Reuse Strategy |
-|---------------------|------------------------|----------|----------------|
-| Save Server Config  | storageService.save()  | src/services/storageService.ts | DIRECT |
-| Get Token           | authService.getToken() | src/services/authService.ts    | DIRECT |
+| Feature | Depends On | Type | Required | Evidence Artifact | Notes |
+|---|---|---|---|---|---|
+| `<feature-slug>` |  | HARD / SOFT | YES / NO | `P1-A14: MAP-...` |  |
 
-## CONFLICTS
+## Reuse Requirements
 
-- Storage wird aktuell in Feature 5 neu implementiert → KONFLIKT
-- API Client doppelt vorhanden → KONFLIKT
+| Feature | Required Functionality | Existing RN Target | Reuse/Add | Evidence |
+|---|---|---|---|---|
 
-Resolution:
-→ Bestehenden Service verwenden
+## Conflicts
 
-## INTEGRATION REQUIREMENTS
-
-- Muss storageService verwenden
-- Darf keinen neuen API Client erstellen
-- Muss bestehende Navigation erweitern
-
-## KRITISCHE REGEL
-
-- KEINE neue Logik erfinden
-- NUR vergleichen + referenzieren
-
-## VALIDATIONS
-
-if dependency_exists and no_reuse_defined:
-    STOP
-
-if duplicate_implementation_detected:
-    STOP
-
-
-## DEPENDENCY MATRIX
-
-| Current Feature | Depends On Feature | Type | Required | Source |
-|----------------|------------------|------|----------|--------|
-|                |                  |      |          |        |
-
-## REUSE ANALYSIS
-
-Identifiziere vorhandene Implementierungen aus RN Code:
-## REUSE MAPPING
-
-| Required Functionality | Existing Implementation | Location | Reuse Strategy | Source |
-|----------------------|------------------------|----------|----------------|--------|
-|                      |                        |          |                |        |
-
-
-## CONFLICTS
-
-| Type | Beschreibung | Betroffene Features | Resolution | Source |
-|------|-------------|---------------------|------------|--------|
-|      |             |                     |            |        |
-
-
-## INTEGRATION REQUIREMENTS
-
-- 
-- 
-- 
-
-## MUSS enthalten:
-
-konkrete Services
-konkrete Dateien
-konkrete Regeln
+| Feature | Conflict | Impact | Resolution | Evidence |
+|---|---|---|---|---|

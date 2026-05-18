@@ -1,48 +1,23 @@
-# STOP RULES
+# Stop Rules
 
-## HARD STOP
+## STOP-001 Hard Stop
 
-Bei jedem Fehler:
+Bei einem blockierenden Fehler wird die Phase beendet. Es werden keine weiteren Code- oder Artefaktaenderungen vorgenommen.
 
-* Execution sofort abbrechen
-* KEINE Teil-Ergebnisse erzeugen
+## STOP-002 Stop Artifact
 
----
+Bei STOP darf genau ein Fehlerartefakt geschrieben werden:
 
-## OUTPUT FORMAT
+```text
+artifacts/<feature-slug>/<agent-id>/<run-id>/phase_<n>/<phase-number>_phase_error.md
+```
 
-Nur ausgeben:
+Das Artefakt enthaelt Fehlercode, Ursache, betroffene Dateien, letzte erfolgreiche Aktion und notwendige Nutzerentscheidung.
 
-1. Fehlerbeschreibung
-2. Ursache
-3. notwendige Aktion
+## STOP-003 No Silent Recovery
 
----
+Automatische Recovery ist nur erlaubt, wenn die Phase sie explizit nennt. Jede Recovery wird im Phasenreport dokumentiert.
 
-## VERBOTEN
+## STOP-004 Warnings
 
-* Weiterarbeiten trotz Fehler
-* Teilweise Ergebnisse
-* Interpretation des Fehlers
-
----
-
-## STOP CONDITIONS
-
-Ein STOP MUSS ausgelöst werden bei:
-
-* fehlenden Referenzen
-* unvollständigen Tabellen
-* nicht ableitbaren Informationen
-* widersprüchlichen Daten
-
----
-
-## NO RECOVERY
-
-Keine automatische Weiterführung
-
-Nur:
-
-→ explizite Korrektur  
-→ erneute Ausführung
+Nicht-blockierende Abweichungen werden als `WARNING` dokumentiert und duerfen die Phase nur fortsetzen lassen, wenn alle Validierungsregeln erfuellt bleiben.

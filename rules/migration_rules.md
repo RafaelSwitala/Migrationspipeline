@@ -1,85 +1,32 @@
-## BEHAVIOR_SPEC VALIDATION ENGINE (STRICT)
+# Migration Rules
 
-Eine behavior_spec.md gilt nur als gültig, wenn ALLE Regeln erfüllt sind:
+## MIG-001 Behavior Parity
 
----
+RN-Code muss das in Phase 1 belegte Verhalten abbilden. Verbesserungen, UI-Modernisierung oder neue Business-Logik sind ausserhalb des Scopes.
 
-### 1. CODE-ABLEITBARKEIT
+## MIG-002 No Legacy Rediscovery
 
-Jede Aussage MUSS direkt aus legacy_analysis.md ableitbar sein.
+Phase 3 bis 5 duerfen Legacy-Code nicht zur fachlichen Interpretation oeffnen. Fehlende Informationen fuehren zu `ERR-REF-01`.
 
-Wenn eine Aussage nicht direkt im Code vorkommt:
-→ INVALID
+## MIG-003 Platform Divergence
 
----
+Unterschiede zwischen iOS und Android werden nicht geglaettet. Sie werden als Divergenz dokumentiert und im RN-Zielverhalten bewusst entschieden.
 
-### 2. KEINE FREIEN INTERPRETATIONEN
+## MIG-004 Dependency Reuse
 
-Verboten:
+Bestehende RN-Services, Hooks und Utilities werden wiederverwendet, wenn sie das benoetigte Verhalten bereits anbieten. Doppelte Implementierungen sind verboten.
 
-- „typischerweise“
-- „wahrscheinlich“
-- „wahrscheinlich bedeutet“
-- „User erwartet vermutlich“
+## MIG-005 Security Preservation
 
-→ führt zu INVALID STATUS
+Sensitive Daten muessen mindestens so geschuetzt werden wie in Legacy. Mapping-Beispiele:
 
----
+- unkritische Persistenz: `AsyncStorage`
+- sensitive Tokens/Secrets: `expo-secure-store` oder vorhandener sicherer RN-Service
 
-### 3. VOLLSTÄNDIGKEIT DER STATES
+## MIG-006 Test Parity
 
-Alle Zustände müssen enthalten:
+RN-Tests aus Phase 4 muessen die validen Legacy-Tests aus Phase 2 abbilden. Ein Test darf nur uebersprungen werden, wenn Phase 2 ihn als invalid oder nicht migrierbar markiert.
 
-- Idle
-- Loading (falls API existiert)
-- Success
-- Error
+## MIG-007 No Runtime Code In ai-context
 
-Wenn ein State fehlt → INVALID
-
----
-
-### 4. INPUT-OUTPUT KONSISTENZ
-
-Jeder Input muss:
-
-- im Intake existieren
-- im Code vorkommen
-- im Testfall abgedeckt sein
-
-sonst → INVALID
-
----
-
-### 5. SIDE EFFECT CHECK
-
-Alle Side Effects müssen explizit sein:
-
-- Navigation
-- Storage
-- API Calls
-
-Wenn implizit → INVALID
-
----
-
-### 6. DETERMINISMUS CHECK
-
-Keine Formulierungen mit:
-
-- „kann“
-- „optional“
-- „meistens“
-- „in der Regel“
-
-→ verboten
-
----
-
-### FINAL RULE
-
-Wenn auch nur 1 Regel verletzt ist:
-
-→ STOP MIGRATION
-→ KEINE TESTS
-→ KEIN CODE
+`ai-context/artifacts/<feature-slug>/<agent-id>/<run-id>/` enthaelt nur Dokumentation und Reports. Runtime-Code und Tests liegen in den App-Repositories.
