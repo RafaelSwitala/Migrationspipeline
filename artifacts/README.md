@@ -1,6 +1,6 @@
 # Artifacts
 
-Hier landen die ausgefuellten Ergebnisse einzelner KI-Laeufe. Dieser Ordner ist bewusst von `templates/` getrennt, damit Vorlagen leer bleiben und mehrere Agenten dasselbe Feature vergleichbar bearbeiten koennen.
+Hier landen die ausgefüllten Ergebnisse einzelner KI-Läufe. Dieser Ordner ist bewusst von `templates/` getrennt, damit Vorlagen leer bleiben und mehrere Agenten dasselbe Feature vergleichbar bearbeiten können.
 
 ## Layout
 
@@ -37,4 +37,4 @@ Wenn der Agent keine sichere Uhrzeit ermitteln kann, verwendet er `unknown-time-
 
 ## Vergleich
 
-`_comparison/` ist fuer spaetere manuelle oder KI-gestuetzte Auswertung gedacht. Die Rohdaten bleiben in den Run-Ordnern; Vergleichsdateien duerfen nur daraus zitieren.
+`_comparison/` ist für spätere manuelle oder KI-gestützte Auswertung gedacht. Die Rohdaten bleiben in den Run-Ordnern; Vergleichsdateien dürfen nur daraus zitieren.

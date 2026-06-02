@@ -1,6 +1,6 @@
 # ID Registry
 
-Diese Datei ist die zentrale Orientierung fuer IDs. Andere Dateien duerfen IDs verwenden, sollen aber keine neuen Namespaces erfinden.
+Diese Datei ist die zentrale Orientierung für IDs. Andere Dateien dürfen IDs verwenden, sollen aber keine neuen Namespaces erfinden.
 
 ## Rule Namespaces
 
@@ -28,23 +28,23 @@ Alle Artefakte werden unter `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_
 | P1-A12 | `12_code_facts.md` | Belegte Legacy-Code-Fakten |
 | P1-A13 | `13_test_definition.md` | Testbare Verhaltensdefinition |
 | P1-A14 | `14_migration_mapping.md` | Mapping iOS/Android nach RN |
-| P1-A15 | `15_execution_contract.md` | Ausfuehrungsvertrag fuer Phase 2 bis 5 |
+| P1-A15 | `15_execution_contract.md` | Ausführungsvertrag für Phase 2 bis 5 |
 | P1-A16 | `16_traceability_matrix.md` | Traceability von Fakten zu Tests und Migration |
 | P2-A21 | `21_legacy_test_plan.md` | Legacy-Unit-Testplan |
 | P2-A22 | `22_legacy_test_implementation.md` | Erzeugte Legacy-Testdateien |
 | P2-A23 | `23_legacy_test_results.md` | Legacy-Test- und Coverage-Ergebnisse |
-| P2-A24 | `24_legacy_test_quality.md` | Testqualitaet und Failure-Sensitivitaet |
+| P2-A24 | `24_legacy_test_quality.md` | Testqualität und Failure-Sensitivität |
 | P3-A31 | `31_rn_implementation_plan.md` | RN-Implementierungsplan |
 | P3-A32 | `32_rn_code_report.md` | Erzeugter RN-Code und Commands |
 | P3-A33 | `33_rn_mapping_status.md` | Abdeckung des Phase-1-Mappings |
 | P4-A41 | `41_rn_test_plan.md` | RN-Testmigrationsplan |
 | P4-A42 | `42_rn_test_mapping.md` | Legacy-Test zu RN-Test Mapping |
 | P4-A43 | `43_rn_test_implementation.md` | Erzeugte RN-Testdateien |
-| P4-A44 | `44_rn_test_readiness.md` | Kompilierbarkeit und Ausfuehrungsbereitschaft |
-| P5-A51 | `51_final_validation_report.md` | Finale Testausfuehrung und Gate |
+| P4-A44 | `44_rn_test_readiness.md` | Kompilierbarkeit und Ausführungsbereitschaft |
+| P5-A51 | `51_final_validation_report.md` | Finale Testausführung und Gate |
 | P5-A52 | `52_behavior_parity_report.md` | Verhalten RN vs Legacy |
 | P5-A53 | `53_test_comparison_report.md` | Phase-2-Tests vs Phase-4/5-Tests |
-| P5-A54 | `54_research_metrics.md` | Vergleichsmetriken fuer KI-Auswertung |
+| P5-A54 | `54_research_metrics.md` | Vergleichsmetriken für KI-Auswertung |
 | P5-A55 | `55_interpretation_notes.md` | Interpretierbare Ergebnisse und Risiken |
 
 ## Run Artifact
@@ -57,8 +57,8 @@ Alle Artefakte werden unter `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_
 
 | Prefix | Bedeutung |
 |---|---|
-| IOS-FILE | iOS-Datei mit Relevanz fuer das Feature |
-| AND-FILE | Android-Datei mit Relevanz fuer das Feature |
+| IOS-FILE | iOS-Datei mit Relevanz für das Feature |
+| AND-FILE | Android-Datei mit Relevanz für das Feature |
 | EP | Entry Point |
 | BEH | Verhalten / Business-Regel |
 | STATE | Zustand oder State Transition |

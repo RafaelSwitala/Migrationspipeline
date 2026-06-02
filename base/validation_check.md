@@ -1,6 +1,6 @@
 # Validation Checklist
 
-Diese Checkliste ist ein kompakter Gate-Check fuer Reviews nach jeder Phase.
+Diese Checkliste ist ein kompakter Gate-Check für Reviews nach jeder Phase.
 
 ## Phase 1
 
@@ -13,29 +13,29 @@ Diese Checkliste ist ein kompakter Gate-Check fuer Reviews nach jeder Phase.
 ## Phase 2
 
 - [ ] Legacy-Testplan referenziert Phase-1-Fakten.
-- [ ] iOS- und Android-Tests existieren oder sind begruendet `N/A`.
-- [ ] Tests wurden ausgefuehrt oder Ausfuehrungsfehler sind reproduzierbar dokumentiert.
-- [ ] Coverage ist dokumentiert oder begruendet nicht verfuegbar.
-- [ ] Testqualitaet wurde gegen `TEST-006` bewertet.
+- [ ] iOS- und Android-Tests existieren oder sind begründet `N/A`.
+- [ ] Tests wurden ausgeführt oder Ausführungsfehler sind reproduzierbar dokumentiert.
+- [ ] Coverage ist dokumentiert oder begründet nicht verfügbar.
+- [ ] Testqualität wurde gegen `TEST-006` bewertet.
 
 ## Phase 3
 
 - [ ] RN-Code liegt in `../rn-e-mobilebrowser/`.
 - [ ] Jedes `MAP-*` ist implementiert, ausgeschlossen oder blockiert dokumentiert.
-- [ ] TypeScript/Imports/Dependencies wurden geprueft.
+- [ ] TypeScript/Imports/Dependencies wurden geprüft.
 - [ ] Keine fachliche Legacy-Neuableitung wurde vorgenommen.
 
 ## Phase 4
 
 - [ ] Jeder valide Legacy-Test hat ein RN-Test-Mapping.
-- [ ] RN-Tests sind syntaktisch/typisch ausfuehrbar vorbereitet.
-- [ ] Tests fuehren kein neues Verhalten ein.
+- [ ] RN-Tests sind syntaktisch/typisch ausführbar vorbereitet.
+- [ ] Tests führen kein neues Verhalten ein.
 - [ ] Mocks sind dokumentiert und deterministisch.
 
 ## Phase 5
 
-- [ ] RN-Tests aus Phase 4 wurden gegen RN-Code aus Phase 3 ausgefuehrt.
+- [ ] RN-Tests aus Phase 4 wurden gegen RN-Code aus Phase 3 ausgeführt.
 - [ ] Legacy-vs-RN-Ergebnisse sind pro Test-ID verglichen.
 - [ ] Behavior-Parity und Coverage sind dokumentiert.
-- [ ] Research-Metriken fuer KI-Vergleich sind vollstaendig oder `N/A` begruendet.
-- [ ] Phase 5 hat keinen Code veraendert.
+- [ ] Research-Metriken für KI-Vergleich sind vollständig oder `N/A` begründet.
+- [ ] Phase 5 hat keinen Code verändert.

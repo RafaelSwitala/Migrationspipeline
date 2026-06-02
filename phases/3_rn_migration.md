@@ -13,7 +13,7 @@ Runtime-Parameter:
 | `FEATURE_NAME` | Feature-Bezeichnung aus dem Nutzerprompt |
 | `FEATURE_SLUG` | identisch zum Phase-1-Run |
 | `AGENT_ID` | identisch zum Phase-1-Run |
-| `RUN_ID` | vorhandener Run; falls nicht genannt, den passenden reviewed Run waehlen und dokumentieren |
+| `RUN_ID` | vorhandener Run; falls nicht genannt, den passenden reviewed Run wählen und dokumentieren |
 
 Arbeitsquellen:
 
@@ -23,19 +23,19 @@ Arbeitsquellen:
 - Regeln: `rules/*.md`
 - Templates: `templates/31_rn_implementation_plan.template.md` bis `templates/33_rn_mapping_status.template.md`
 
-Phase 2 ist fuer Phase 3 kein fachlicher Input.
+Phase 2 ist für Phase 3 kein fachlicher Input.
 
 ## Output
 
 Erzeuge folgende Dateien in `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_3/`:
 
-| Artifact ID | Datei | Pflichtinhalt | Vollstaendig wenn |
+| Artifact ID | Datei | Pflichtinhalt | Vollständig wenn |
 |---|---|---|---|
 | P3-A31 | `31_rn_implementation_plan.md` | `MAP-*` zu RN-Dateien/Symbolen, Reuse/Add/Adapt, Dependencies, Implementierungsreihenfolge | jedes `MAP-*` hat eine geplante Aktion |
-| P3-A32 | `32_rn_code_report.md` | geaenderte RN-Dateien, erzeugte Symbole, Commands, Typecheck/Lint/Build-Ergebnisse, Fehler | jede Codeaenderung und jeder Command ist dokumentiert |
+| P3-A32 | `32_rn_code_report.md` | geänderte RN-Dateien, erzeugte Symbole, Commands, Typecheck/Lint/Build-Ergebnisse, Fehler | jede Codeänderung und jeder Command ist dokumentiert |
 | P3-A33 | `33_rn_mapping_status.md` | Status pro `MAP-*`: `IMPLEMENTED`, `PARTIAL`, `EXCLUDED`, `BLOCKED`; Evidenz und Risiko | kein `MAP-*` fehlt |
 
-Erzeuge oder aktualisiere Runtime-Code in `../rn-e-mobilebrowser/` gemaess Projektstruktur.
+Erzeuge oder aktualisiere Runtime-Code in `../rn-e-mobilebrowser/` gemäß Projektstruktur.
 
 ## Regelbindungen
 
@@ -52,7 +52,7 @@ Erzeuge oder aktualisiere Runtime-Code in `../rn-e-mobilebrowser/` gemaess Proje
 
 ## Execution Steps
 
-1. Pre-flight pruefen.
+1. Pre-flight prüfen.
    - Stelle sicher, dass RN-Projekt und Phase-1-Artefakte existieren.
    - Lies vorhandene RN-Struktur, `package.json`, TypeScript/Jest-Konfiguration und lokale Patterns.
    - Lege `phase_3/` an.
@@ -70,29 +70,29 @@ Erzeuge oder aktualisiere Runtime-Code in `../rn-e-mobilebrowser/` gemaess Proje
 
 4. Dependencies behandeln.
    - Nutze vorhandene Libraries zuerst.
-   - Neue Dependencies nur mit Begruendung und Installations-/Importnachweis.
+   - Neue Dependencies nur mit Begründung und Installations-/Importnachweis.
 
-5. Static Validation ausfuehren.
-   - Fuehre verfuegbare TypeScript-, lint- oder buildnahe Commands aus.
+5. Static Validation ausführen.
+   - Führe verfügbare TypeScript-, lint- oder buildnahe Commands aus.
    - Wenn Commands fehlen, dokumentiere `N/A` mit Grund.
 
 6. Reports erstellen.
-   - Fuell alle drei Phase-3-Artefakte.
-   - Aktualisiere `run_metadata.md` mit Commands, Dauer, geaenderten Dateien und offenen Risiken.
+   - Füll alle drei Phase-3-Artefakte.
+   - Aktualisiere `run_metadata.md` mit Commands, Dauer, geänderten Dateien und offenen Risiken.
 
 ## Validationsregeln
 
 | ID | Check | Fehler |
 |---|---|---|
 | VAL-P3-01 | Jedes `MAP-*` hat Implementierungsstatus | ERR-P3-01 |
-| VAL-P3-02 | RN-Code ist statisch pruefbar oder Fehler dokumentiert | ERR-P3-03 |
+| VAL-P3-02 | RN-Code ist statisch prüfbar oder Fehler dokumentiert | ERR-P3-03 |
 | VAL-P3-03 | Architekturregeln eingehalten | ERR-P3-01 |
 | VAL-GEN-02 | Jede Entscheidung referenziert Phase 1 | ERR-REF-01 |
 
-## Fehlerfaelle
+## Fehlerfälle
 
 | Fehler | Behandlung |
 |---|---|
-| ERR-P3-01 | STOP, Mapping-Luecke oder nicht umsetzbares Verhalten dokumentieren |
+| ERR-P3-01 | STOP, Mapping-Lücke oder nicht umsetzbares Verhalten dokumentieren |
 | ERR-P3-02 | STOP, fehlendes RN-Projekt oder Dependency dokumentieren |
 | ERR-P3-03 | STOP, TypeScript/Import/Buildfehler im Report erfassen |

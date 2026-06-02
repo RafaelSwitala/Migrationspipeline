@@ -1,6 +1,6 @@
 # Feature Dependencies
 
-Diese Datei ist eine optionale globale Uebersicht. Verbindliche Dependency-Details gehoeren in die jeweiligen Run-Artefakte unter `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_1/14_migration_mapping.md` und `15_execution_contract.md`.
+Diese Datei ist eine optionale globale Übersicht. Verbindliche Dependency-Details gehören in die jeweiligen Run-Artefakte unter `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_1/14_migration_mapping.md` und `15_execution_contract.md`.
 
 ## Dependency Matrix
 

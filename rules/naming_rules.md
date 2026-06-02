@@ -39,4 +39,4 @@ Artefakte verwenden das Nummernschema aus `rules/id_registry.md`, zum Beispiel:
 
 ## NAM-005 ID Names
 
-IDs sind stabil und werden nie umbenannt, sobald ein Artefakt reviewed wurde. Neue IDs werden angehaengt, nicht zwischen bestehende IDs geschoben.
+IDs sind stabil und werden nie umbenannt, sobald ein Artefakt reviewed wurde. Neue IDs werden angehängt, nicht zwischen bestehende IDs geschoben.

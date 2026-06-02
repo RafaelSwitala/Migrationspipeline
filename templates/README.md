@@ -1,6 +1,6 @@
 # Templates
 
-Diese Dateien sind leere Vorlagen. Ein Agent darf sie lesen und in einen Run-Ordner unter `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_<n>/` kopieren. Templates selbst duerfen nie ausgefuellt oder ueberschrieben werden.
+Diese Dateien sind leere Vorlagen. Ein Agent darf sie lesen und in einen Run-Ordner unter `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_<n>/` kopieren. Templates selbst dürfen nie ausgefüllt oder überschrieben werden.
 
 Pflicht:
 
@@ -18,4 +18,4 @@ templates/11_feature_analysis.template.md
 -> artifacts/<feature-slug>/<agent-id>/<run-id>/phase_1/11_feature_analysis.md
 ```
 
-Erst die kopierte Datei wird ausgefuellt.
+Erst die kopierte Datei wird ausgefüllt.

@@ -2,7 +2,7 @@
 
 ## STOP-001 Hard Stop
 
-Bei einem blockierenden Fehler wird die Phase beendet. Es werden keine weiteren Code- oder Artefaktaenderungen vorgenommen.
+Bei einem blockierenden Fehler wird die Phase beendet. Es werden keine weiteren Code- oder Artefaktänderungen vorgenommen.
 
 ## STOP-002 Stop Artifact
 
@@ -12,7 +12,7 @@ Bei STOP darf genau ein Fehlerartefakt geschrieben werden:
 artifacts/<feature-slug>/<agent-id>/<run-id>/phase_<n>/<phase-number>_phase_error.md
 ```
 
-Das Artefakt enthaelt Fehlercode, Ursache, betroffene Dateien, letzte erfolgreiche Aktion und notwendige Nutzerentscheidung.
+Das Artefakt enthält Fehlercode, Ursache, betroffene Dateien, letzte erfolgreiche Aktion und notwendige Nutzerentscheidung.
 
 ## STOP-003 No Silent Recovery
 
@@ -20,4 +20,4 @@ Automatische Recovery ist nur erlaubt, wenn die Phase sie explizit nennt. Jede R
 
 ## STOP-004 Warnings
 
-Nicht-blockierende Abweichungen werden als `WARNING` dokumentiert und duerfen die Phase nur fortsetzen lassen, wenn alle Validierungsregeln erfuellt bleiben.
+Nicht-blockierende Abweichungen werden als `WARNING` dokumentiert und dürfen die Phase nur fortsetzen lassen, wenn alle Validierungsregeln erfüllt bleiben.

@@ -1,6 +1,6 @@
 # Comparison Workspace
 
-Hier koennen spaeter featurebezogene Vergleichstabellen zwischen Agenten gesammelt werden.
+Hier können später featurebezogene Vergleichstabellen zwischen Agenten gesammelt werden.
 
 Empfohlenes Format:
 

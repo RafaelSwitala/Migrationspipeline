@@ -19,12 +19,12 @@ Nur Unit Tests sind Teil des Migrationsvergleichs.
 ## TEST-004 React Native
 
 - Bevorzugt: Jest
-- UI-nahe Tests: React Native Testing Library, wenn im Projekt vorhanden oder begruendet installierbar
+- UI-nahe Tests: React Native Testing Library, wenn im Projekt vorhanden oder begründet installierbar
 - Native/Expo APIs werden deterministisch gemockt
 
 ## TEST-005 Coverage
 
-Coverage soll so hoch wie sinnvoll erreichbar sein. Qualitaet geht vor kuenstlicher Prozentoptimierung. Branches, Error Paths, State Transitions und Storage/API Side Effects haben Prioritaet.
+Coverage soll so hoch wie sinnvoll erreichbar sein. Qualität geht vor künstlicher Prozentoptimierung. Branches, Error Paths, State Transitions und Storage/API Side Effects haben Priorität.
 
 ## TEST-006 Valid Test
 
@@ -32,5 +32,5 @@ Ein Test ist valide, wenn er:
 
 - auf Phase-1-Fakten oder Phase-2-Test-IDs referenziert,
 - deterministische Inputs nutzt,
-- mindestens eine fachliche Assertion enthaelt,
-- bei gebrochenem Verhalten plausibel fehlschlagen wuerde.
+- mindestens eine fachliche Assertion enthält,
+- bei gebrochenem Verhalten plausibel fehlschlagen würde.

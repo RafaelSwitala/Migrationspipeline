@@ -37,8 +37,8 @@ Ein isolierter `src/features/<feature-slug>/`-Ordner ist nur erlaubt, wenn das R
 
 ## ARCH-005 Dependency Direction
 
-UI darf Hooks nutzen. Hooks duerfen Services und Utils nutzen. Services duerfen keine UI importieren.
+UI darf Hooks nutzen. Hooks dürfen Services und Utils nutzen. Services dürfen keine UI importieren.
 
 ## ARCH-006 Minimalism
 
-Keine neue State-Management-, API- oder Styling-Bibliothek einfuehren, wenn das Feature mit vorhandenen Mitteln umgesetzt werden kann.
+Keine neue State-Management-, API- oder Styling-Bibliothek einführen, wenn das Feature mit vorhandenen Mitteln umgesetzt werden kann.

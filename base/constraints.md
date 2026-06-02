@@ -2,7 +2,7 @@
 
 ## CON-001 Functional Equivalence
 
-Ziel ist funktionale Aequivalenz zum belegten Legacy-Verhalten, nicht Produktverbesserung.
+Ziel ist funktionale Äquivalenz zum belegten Legacy-Verhalten, nicht Produktverbesserung.
 
 ## CON-002 Unit Tests Only
 
@@ -18,8 +18,8 @@ Bestehende Projektstruktur, Libraries und lokale Helper haben Vorrang vor neuen 
 
 ## CON-005 Dependency Handling
 
-Neue Dependencies muessen begruendet, installiert/importierbar und im Report dokumentiert sein. Fehlende Dependencies fuehren zu `ERR-P3-02` oder `ERR-P4-02`.
+Neue Dependencies müssen begründet, installiert/importierbar und im Report dokumentiert sein. Fehlende Dependencies führen zu `ERR-P3-02` oder `ERR-P4-02`.
 
 ## CON-006 Bachelorarbeit Comparability
 
-Phasen duerfen nicht durch nachtraegliche, undokumentierte Korrekturen geglaettet werden. Jeder manuelle Eingriff wird als Messwert erfasst.
+Phasen dürfen nicht durch nachträgliche, undokumentierte Korrekturen geglättet werden. Jeder manuelle Eingriff wird als Messwert erfasst.

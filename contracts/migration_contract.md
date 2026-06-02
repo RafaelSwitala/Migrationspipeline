@@ -1,12 +1,12 @@
 # Migration Contract
 
-Dieser Vertrag beschreibt den End-to-end-Ablauf fuer ein Feature.
+Dieser Vertrag beschreibt den End-to-end-Ablauf für ein Feature.
 
 ## MC-001 Phase Dependency
 
 | Phase | Darf starten wenn |
 |---|---|
-| P1 | Feature-Prompt und Legacy-Repos verfuegbar sind |
+| P1 | Feature-Prompt und Legacy-Repos verfügbar sind |
 | P2 | P1-Artefakte `READY_FOR_REVIEW` oder `COMPLETE` sind |
 | P3 | P1-Artefakte `READY_FOR_REVIEW` oder `COMPLETE` sind und RN-Projekt existiert |
 | P4 | P2-Artefakte und RN-Projekt existieren |
@@ -14,7 +14,7 @@ Dieser Vertrag beschreibt den End-to-end-Ablauf fuer ein Feature.
 
 ## MC-002 Legacy Freeze
 
-Phase 1 friert das fachliche Legacy-Verstaendnis ein. Spaetere Phasen duerfen Defizite melden, aber keine neuen fachlichen Fakten stillschweigend ableiten.
+Phase 1 friert das fachliche Legacy-Verständnis ein. Spätere Phasen dürfen Defizite melden, aber keine neuen fachlichen Fakten stillschweigend ableiten.
 
 ## MC-003 Code Ownership
 
@@ -27,12 +27,12 @@ Phase 1 friert das fachliche Legacy-Verstaendnis ein. Spaetere Phasen duerfen De
 
 ## MC-004 Research Integrity
 
-Fuer den KI-Vergleich werden Fehlschlaege nicht versteckt. Jeder Fehler, jede Recovery, jede manuelle Korrektur und jede nicht verfuegbare Metrik wird dokumentiert.
+Für den KI-Vergleich werden Fehlschläge nicht versteckt. Jeder Fehler, jede Recovery, jede manuelle Korrektur und jede nicht verfügbare Metrik wird dokumentiert.
 
 ## MC-005 No Cross-Agent Drift
 
-Alle KI-Agenten muessen dieselben Phasen, Regeln, Inputs und Artefakt-Namen verwenden. Agent-spezifische Extras duerfen nur in `55_interpretation_notes.md` erlaeutert werden.
+Alle KI-Agenten müssen dieselben Phasen, Regeln, Inputs und Artefakt-Namen verwenden. Agent-spezifische Extras dürfen nur in `55_interpretation_notes.md` erläutert werden.
 
 ## MC-006 Run Isolation
 
-Jeder Agent-Lauf bekommt einen eigenen Ordner. Ein Agent darf niemals Artefakte eines anderen Agenten oder Run-IDs ueberschreiben.
+Jeder Agent-Lauf bekommt einen eigenen Ordner. Ein Agent darf niemals Artefakte eines anderen Agenten oder Run-IDs überschreiben.

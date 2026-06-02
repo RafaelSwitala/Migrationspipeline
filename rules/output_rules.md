@@ -30,7 +30,7 @@ Tabellen mit fachlichen Aussagen enthalten immer:
 
 ## OUT-003 Changed Files And Commands
 
-Phasen mit Code- oder Testaenderungen dokumentieren:
+Phasen mit Code- oder Teständerungen dokumentieren:
 
 ```text
 | Type | Path/Command | Result | Notes |
@@ -54,7 +54,7 @@ Coverage wird einheitlich dokumentiert:
 | Platform | Statements | Branches | Functions | Lines | Tool | Raw Report Path |
 ```
 
-Wenn ein Tool keine Metrik liefert, wird `N/A` mit Begruendung eingetragen.
+Wenn ein Tool keine Metrik liefert, wird `N/A` mit Begründung eingetragen.
 
 ## OUT-006 Decision Log
 
@@ -69,7 +69,7 @@ Architektur- oder Testentscheidungen werden als Decision Log dokumentiert:
 Jede Phase liefert, soweit messbar:
 
 - Dauer
-- Anzahl geaenderter Dateien
+- Anzahl geänderter Dateien
 - Anzahl generierter Tests
 - Test-Passrate
 - Coverage

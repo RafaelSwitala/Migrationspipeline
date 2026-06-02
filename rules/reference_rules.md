@@ -2,7 +2,7 @@
 
 ## REF-001 Evidence Required
 
-Jede fachliche Aussage braucht eine Quelle. Phase 1 verwendet Legacy-Referenzen mit Datei, Symbol und Zeile. Spaetere Phasen verwenden die IDs aus Phase 1 und Phase 2.
+Jede fachliche Aussage braucht eine Quelle. Phase 1 verwendet Legacy-Referenzen mit Datei, Symbol und Zeile. Spätere Phasen verwenden die IDs aus Phase 1 und Phase 2.
 
 ## REF-002 Reference Format
 
@@ -23,7 +23,7 @@ Artefakte:
 
 ## REF-003 Later-Phase Restriction
 
-Phase 3 bis 5 duerfen keine neuen Legacy-Referenzen erzeugen. Wenn ein Detail fehlt, stoppt die Phase mit `ERR-REF-01` und fordert eine Phase-1-Ergaenzung.
+Phase 3 bis 5 dürfen keine neuen Legacy-Referenzen erzeugen. Wenn ein Detail fehlt, stoppt die Phase mit `ERR-REF-01` und fordert eine Phase-1-Ergänzung.
 
 ## REF-004 No Floating Claims
 
@@ -31,4 +31,4 @@ Verboten sind Formulierungen wie `vermutlich`, `wahrscheinlich`, `typischerweise
 
 ## REF-005 Traceability
 
-Jede implementierte RN-Funktion und jeder Testfall muss auf mindestens eine Phase-1-ID oder Phase-2-Test-ID zurueckfuehrbar sein.
+Jede implementierte RN-Funktion und jeder Testfall muss auf mindestens eine Phase-1-ID oder Phase-2-Test-ID zurückführbar sein.

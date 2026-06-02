@@ -1,8 +1,8 @@
 # Feature Workspace
 
-Dieses Verzeichnis enthaelt alte Referenzen und optionale globale Feature-Uebersichten. Neue Artefakte der fuenf Migrationsphasen liegen in `artifacts/<feature-slug>/<agent-id>/<run-id>/`.
+Dieses Verzeichnis enthält alte Referenzen und optionale globale Feature-Übersichten. Neue Artefakte der fünf Migrationsphasen liegen in `artifacts/<feature-slug>/<agent-id>/<run-id>/`.
 
-Bestehende unnummerierte Artefakte wie `intake.md`, `behavior_spec.md`, `mapping.md` oder alte `_golden_example`-Dateien sind Legacy-Material. Neue Phasenlaeufe verwenden nur die nummerierten Artefakte aus `rules/id_registry.md`, ausser der Nutzer fordert explizit eine Altanalyse an.
+Bestehende unnummerierte Artefakte wie `intake.md`, `behavior_spec.md`, `mapping.md` oder alte `_golden_example`-Dateien sind Legacy-Material. Neue Phasenläufe verwenden nur die nummerierten Artefakte aus `rules/id_registry.md`, außer der Nutzer fordert explizit eine Altanalyse an.
 
 ## Neue Artefaktordner
 
@@ -56,4 +56,4 @@ Erlaubte Statuswerte stehen in `rules/id_registry.md`:
 
 ## Review-Regel
 
-Die naechste Phase soll erst starten, wenn die vorherige Phase mindestens `READY_FOR_REVIEW` ist und keine blockierenden `UNKNOWN`-Werte offen sind.
+Die nächste Phase soll erst starten, wenn die vorherige Phase mindestens `READY_FOR_REVIEW` ist und keine blockierenden `UNKNOWN`-Werte offen sind.

@@ -2,7 +2,7 @@
 
 ## Ziel
 
-Fuehre die RN-Tests aus Phase 4 gegen den RN-Code aus Phase 3 aus, vergleiche die Ergebnisse mit Phase 2 und erstelle verwertbare Auswertungsartefakte fuer die Bachelorarbeit. Diese Phase veraendert keinen Code.
+Führe die RN-Tests aus Phase 4 gegen den RN-Code aus Phase 3 aus, vergleiche die Ergebnisse mit Phase 2 und erstelle verwertbare Auswertungsartefakte für die Bachelorarbeit. Diese Phase verändert keinen Code.
 
 ## Input
 
@@ -13,7 +13,7 @@ Runtime-Parameter:
 | `FEATURE_NAME` | Feature-Bezeichnung aus dem Nutzerprompt |
 | `FEATURE_SLUG` | identisch zum Phase-1-Run |
 | `AGENT_ID` | identisch zum Phase-1-Run |
-| `RUN_ID` | vorhandener Run; falls nicht genannt, den passenden reviewed Run waehlen und dokumentieren |
+| `RUN_ID` | vorhandener Run; falls nicht genannt, den passenden reviewed Run wählen und dokumentieren |
 
 Arbeitsquellen:
 
@@ -30,15 +30,15 @@ Arbeitsquellen:
 
 Erzeuge folgende Dateien in `artifacts/<feature-slug>/<agent-id>/<run-id>/phase_5/`:
 
-| Artifact ID | Datei | Pflichtinhalt | Vollstaendig wenn |
+| Artifact ID | Datei | Pflichtinhalt | Vollständig wenn |
 |---|---|---|---|
-| P5-A51 | `51_final_validation_report.md` | RN-Testcommands, Resultate, Coverage, Ausfuehrungsumgebung, finaler Gate-Status | jeder RN-Test aus Phase 4 hat Ergebnis |
+| P5-A51 | `51_final_validation_report.md` | RN-Testcommands, Resultate, Coverage, Ausführungsumgebung, finaler Gate-Status | jeder RN-Test aus Phase 4 hat Ergebnis |
 | P5-A52 | `52_behavior_parity_report.md` | Vergleich pro `BEH-*`, `STATE-*`, `STOR-*`, `API-*`, `ERRPATH-*`, `MAP-*` | jede relevante Phase-1-ID ist bewertet |
 | P5-A53 | `53_test_comparison_report.md` | `LT-*` zu `RT-*`, Legacy Result, RN Result, Vergleichskategorie, Abweichungsgrund | jeder valide Legacy-Test ist verglichen |
 | P5-A54 | `54_research_metrics.md` | Metriken aus `MET-001` bis `MET-004`, Fehleranzahl, Dauer, manuelle Eingriffe, Coverage | jede Metrik hat Wert oder `N/A` mit Grund |
-| P5-A55 | `55_interpretation_notes.md` | Beobachtungen, Evidenz, Interpretation, Relevanz fuer KI-Vergleich | Beobachtung und Interpretation sind getrennt |
+| P5-A55 | `55_interpretation_notes.md` | Beobachtungen, Evidenz, Interpretation, Relevanz für KI-Vergleich | Beobachtung und Interpretation sind getrennt |
 
-Keine Codeaenderungen in `../rn-e-mobilebrowser/`, `../ios-mobilebrowser/` oder `../android-mobilebrowser/`.
+Keine Codeänderungen in `../rn-e-mobilebrowser/`, `../ios-mobilebrowser/` oder `../android-mobilebrowser/`.
 
 ## Regelbindungen
 
@@ -55,9 +55,9 @@ Keine Codeaenderungen in `../rn-e-mobilebrowser/`, `../ios-mobilebrowser/` oder 
 
 ## Execution Steps
 
-1. Pre-flight pruefen.
-   - Pruefe, ob alle P1-P4-Artefakte vorhanden sind.
-   - Pruefe, ob RN-Code und RN-Testdateien existieren.
+1. Pre-flight prüfen.
+   - Prüfe, ob alle P1-P4-Artefakte vorhanden sind.
+   - Prüfe, ob RN-Code und RN-Testdateien existieren.
    - Lege `phase_5/` an.
    - Kopiere die Phase-5-Templates in `phase_5/` und entferne `.template` aus dem Dateinamen.
    - Dokumentiere fehlende Inputs als Blocker.
@@ -66,8 +66,8 @@ Keine Codeaenderungen in `../rn-e-mobilebrowser/`, `../ios-mobilebrowser/` oder 
    - Nutze Commands aus `P1-A15`, `P4-A44` oder `package.json`.
    - Installiere keine neuen Dependencies ohne explizite Freigabe durch vorherige Phasen.
 
-3. RN-Tests ausfuehren.
-   - Fuehre Jest/Unit-Tests mit Coverage aus, wenn verfuegbar.
+3. RN-Tests ausführen.
+   - Führe Jest/Unit-Tests mit Coverage aus, wenn verfügbar.
    - Erfasse Resultate nach `OUT-004` und Coverage nach `OUT-005`.
 
 4. Testvergleich erstellen.
@@ -76,18 +76,18 @@ Keine Codeaenderungen in `../rn-e-mobilebrowser/`, `../ios-mobilebrowser/` oder 
 
 5. Behavior-Parity bewerten.
    - Vergleiche `BEH-*`, `STATE-*`, `STOR-*`, `API-*`, `ERRPATH-*` und `MAP-*` mit RN-Code- und Testergebnissen.
-   - Markiere Abweichungen als bewusst, unbewusst oder ungeprueft.
+   - Markiere Abweichungen als bewusst, unbewusst oder ungeprüft.
 
 6. Research Metrics berechnen.
    - Erfasse Metriken aus `base/evaluation_framework.md`.
-   - Markiere nicht verfuegbare Daten als `N/A` mit Grund.
+   - Markiere nicht verfügbare Daten als `N/A` mit Grund.
 
 7. Interpretation schreiben.
-   - Beschreibe kurz, was fuer den KI-Vergleich relevant ist.
+   - Beschreibe kurz, was für den KI-Vergleich relevant ist.
    - Trenne Beobachtung, Messwert und Interpretation.
-   - Keine nachtraeglichen Codefixes in dieser Phase.
+   - Keine nachträglichen Codefixes in dieser Phase.
 
-8. Run abschliessen.
+8. Run abschließen.
    - Aktualisiere `run_metadata.md`.
    - Setze finalen Status auf `COMPLETE`, `FAILED` oder `BLOCKED`.
 
@@ -95,16 +95,16 @@ Keine Codeaenderungen in `../rn-e-mobilebrowser/`, `../ios-mobilebrowser/` oder 
 
 | ID | Check | Fehler |
 |---|---|---|
-| VAL-P5-01 | RN-Tests aus Phase 4 wurden gegen Phase-3-Code ausgefuehrt | ERR-P5-01 |
+| VAL-P5-01 | RN-Tests aus Phase 4 wurden gegen Phase-3-Code ausgeführt | ERR-P5-01 |
 | VAL-P5-02 | Legacy-vs-RN-Vergleich pro Test-ID vorhanden | ERR-P5-02 |
-| VAL-P5-03 | Research-Metriken vollstaendig oder `N/A` begruendet | ERR-P5-02 |
+| VAL-P5-03 | Research-Metriken vollständig oder `N/A` begründet | ERR-P5-02 |
 | VAL-GEN-01 | Alle Phase-5-Artefakte existieren | ERR-P5-02 |
 | VAL-GEN-03 | Keine Platzhalter in finalen Reports | ERR-P5-02 |
 
-## Fehlerfaelle
+## Fehlerfälle
 
 | Fehler | Behandlung |
 |---|---|
-| ERR-P5-01 | STOP, Testausfuehrung, Command, Output und Ursache dokumentieren |
+| ERR-P5-01 | STOP, Testausführung, Command, Output und Ursache dokumentieren |
 | ERR-P5-02 | STOP, fehlende Vergleichsdaten oder Metriken dokumentieren |
-| ERR-P5-03 | Als WARNING dokumentieren, wenn Divergenz bewusst und vollstaendig belegt ist |
+| ERR-P5-03 | Als WARNING dokumentieren, wenn Divergenz bewusst und vollständig belegt ist |
