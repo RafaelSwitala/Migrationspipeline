@@ -5,6 +5,3 @@ webview
 settings
 qr-scanner
 barcode-scanner
-extended-featured
-platform-specific
-optional

@@ -14,8 +14,3 @@
 
 | Observation | Evidence | Interpretation | Relevance |
 |---|---|---|---|
-
-## Bachelorarbeit Notes
-
-| Topic | Note | Use In Evaluation |
-|---|---|---|

@@ -2,7 +2,7 @@
 
 ## Ziel
 
-Führe die RN-Tests aus Phase 4 gegen den RN-Code aus Phase 3 aus, vergleiche die Ergebnisse mit Phase 2 und erstelle verwertbare Auswertungsartefakte für die Bachelorarbeit. Diese Phase verändert keinen Code.
+Führe die RN-Tests aus Phase 4 gegen den RN-Code aus Phase 3 aus, vergleiche die Ergebnisse mit Phase 2 und erstelle verwertbare Auswertungsartefakte. Diese Phase verändert keinen Code.
 
 ## Input
 

@@ -19,7 +19,3 @@ Bestehende Projektstruktur, Libraries und lokale Helper haben Vorrang vor neuen 
 ## CON-005 Dependency Handling
 
 Neue Dependencies müssen begründet, installiert/importierbar und im Report dokumentiert sein. Fehlende Dependencies führen zu `ERR-P3-02` oder `ERR-P4-02`.
-
-## CON-006 Bachelorarbeit Comparability
-
-Phasen dürfen nicht durch nachträgliche, undokumentierte Korrekturen geglättet werden. Jeder manuelle Eingriff wird als Messwert erfasst.
